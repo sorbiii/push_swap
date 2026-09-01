@@ -1,0 +1,43 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nadamczy <nadamczy@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/19 13:46:28 by nadamczy          #+#    #+#             */
+/*   Updated: 2024/12/19 13:47:58 by nadamczy         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	int		len_s1;
+	int		len_s2;
+	int		total_len;
+	char	*new_str;
+
+	if (!s1 || !s2)
+		return (NULL);
+	len_s1 = ft_strlen(s1);
+	len_s2 = ft_strlen(s2);
+	total_len = len_s1 + len_s2;
+	new_str = (char *)malloc(total_len + 1);
+	if (!new_str)
+		return (NULL);
+	ft_memcpy(new_str, s1, len_s1);
+	ft_memcpy(new_str + len_s1, s2, len_s2);
+	new_str[total_len] = '\0';
+	return (new_str);
+}
+
+/*int	main(void)
+{
+	char	*str;
+
+	str = ft_strjoin("jupi", "pi");
+	printf("%s", str);
+	return (0);
+}*/
